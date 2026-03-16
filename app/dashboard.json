@@ -1,0 +1,16 @@
+{
+  "title": "AI Quality Gate Observability",
+  "panels": [
+    {
+      "title": "HTTP 5xx Error Rate",
+      "type": "timeseries",
+      "targets": [{ "expr": "rate(http_requests_total{status=~'5..'}[5m])" }]
+    },
+    {
+      "title": "AI Deployment Decisions",
+      "type": "state-timeline",
+      "description": "Green = Continue, Red = Rollback (Driven by GPT-4o analysis)"
+    }
+  ],
+  "schemaVersion": 36
+}
